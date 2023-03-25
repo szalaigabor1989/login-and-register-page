@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../images/bg.jpg") center center no-repeat;
+  background-size: cover; }
+
+.form-container {
+  width: 400px;
+  height: 440px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: #162938 0 20px 30px -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: height .2s ease-in-out; }
+  .form-container.signup {
+    height: 520px; }
+    .form-container.signup .form-box.login {
+      transition: none;
+      transform: translateX(-400px); }
+    .form-container.signup .form-box.signup {
+      transition: transform .2s ease-in-out;
+      transform: translateX(0); }
+  .form-container .form-box {
+    width: 100%;
+    padding: 40px; }
+    .form-container .form-box.login {
+      transition: transform .2s ease-in-out;
+      transform: translateX(0); }
+    .form-container .form-box.signup {
+      position: absolute;
+      transition: none;
+      transform: translateX(400px); }
+    .form-container .form-box h2 {
+      font-size: 2rem;
+      color: #162938;
+      text-align: center;
+      user-select: none; }
+    .form-container .form-box form .input-box {
+      width: 100%;
+      height: 50px;
+      margin: 30px 0;
+      border-bottom: 2px solid #162938;
+      position: relative; }
+      .form-container .form-box form .input-box label {
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        font-weight: 500;
+        color: #162938;
+        pointer-events: none;
+        transition: top .2s ease-in-out;
+        user-select: none; }
+      .form-container .form-box form .input-box input {
+        width: 100%;
+        height: 100%;
+        padding: 0 35px 0 5px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #162938; }
+        .form-container .form-box form .input-box input:focus ~ label,
+        .form-container .form-box form .input-box input:valid ~ label {
+          top: -5px; }
+      .form-container .form-box form .input-box .icon {
+        line-height: 57px;
+        position: absolute;
+        right: 8px;
+        font-size: 1.2rem;
+        color: #162938; }
+    .form-container .form-box form .remember-forgot {
+      margin: -15px 0 15px;
+      font-size: .9rem;
+      font-weight: 500;
+      color: #162938;
+      display: flex;
+      justify-content: space-between; }
+      .form-container .form-box form .remember-forgot label {
+        cursor: pointer;
+        user-select: none; }
+        .form-container .form-box form .remember-forgot label input {
+          margin-right: 3px;
+          accent-color: #162938; }
+      .form-container .form-box form .remember-forgot a {
+        color: #162938;
+        text-decoration: none;
+        user-select: none; }
+        .form-container .form-box form .remember-forgot a:hover {
+          text-decoration: underline; }
+    .form-container .form-box form [type="submit"] {
+      width: 100%;
+      height: 45px;
+      background-color: #162938;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+      font-size: 1rem;
+      color: #fff;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden; }
+    .form-container .form-box form .login-signup {
+      margin: 25px 0 10px;
+      font-size: .9rem;
+      font-weight: 500;
+      color: #162938;
+      text-align: center;
+      user-select: none; }
+      .form-container .form-box form .login-signup p a {
+        color: #162938;
+        font-weight: 600;
+        text-decoration: none; }
+        .form-container .form-box form .login-signup p a:hover {
+          text-decoration: underline; }

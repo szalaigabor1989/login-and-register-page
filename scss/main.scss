@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+$white: #fff;
+$dark: #162938;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../images/bg.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.form-container {
+    width: 400px;
+    height: 440px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: rgba($dark, 1) 0 20px 30px -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: height .2s ease-in-out;
+
+    &.signup {
+        height: 520px;
+
+        .form-box.login {
+            transition: none;
+            transform: translateX(-400px);
+        }
+
+        .form-box.signup {
+            transition: transform .2s ease-in-out;
+            transform: translateX(0);
+        }
+    }
+
+    .form-box {
+        width: 100%;
+        padding: 40px;
+
+        &.login {
+            transition: transform .2s ease-in-out;
+            transform: translateX(0);
+        }
+
+        &.signup {
+            position: absolute;
+            transition: none;
+            transform: translateX(400px);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: $dark;
+            text-align: center;
+            user-select: none;
+        }
+
+        form {
+            .input-box {
+                width: 100%;
+                height: 50px;
+                margin: 30px 0;
+                border-bottom: 2px solid $dark;
+                position: relative;
+
+                label {
+                    position: absolute;
+                    top: 50%;
+                    left: 5px;
+                    transform: translateY(-50%);
+                    font-size: 1rem;
+                    font-weight: 500;
+                    color: $dark;
+                    pointer-events: none;
+                    transition: top .2s ease-in-out;
+                    user-select: none;
+                }
+
+                input {
+                    width: 100%;
+                    height: 100%;
+                    padding: 0 35px 0 5px;
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: $dark;
+
+                    &:focus ~ label,
+                    &:valid ~ label {
+                        top: -5px;
+                    }
+                }
+
+                .icon {
+                    line-height: 57px;
+                    position: absolute;
+                    right: 8px;
+                    font-size: 1.2rem;
+                    color: $dark;
+                }
+            }
+
+            .remember-forgot {
+                margin: -15px 0 15px;
+                font-size: .9rem;
+                font-weight: 500;
+                color: $dark;
+                display: flex;
+                justify-content: space-between;
+
+                label {
+                    cursor: pointer;
+                    user-select: none;
+
+                    input {
+                        margin-right: 3px;
+                        accent-color: $dark;
+                    }
+                }
+
+                a {
+                    color: $dark;
+                    text-decoration: none;
+                    user-select: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            [type="submit"] {
+                width: 100%;
+                height: 45px;
+                background-color: $dark;
+                border: none;
+                border-radius: 6px;
+                outline: none;
+                cursor: pointer;
+                font-size: 1rem;
+                color: $white;
+                font-weight: 500;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .login-signup {
+                margin: 25px 0 10px;
+                font-size: .9rem;
+                font-weight: 500;
+                color: $dark;
+                text-align: center;
+                user-select: none;
+
+                p {
+                    a {
+                        color: $dark;
+                        font-weight: 600;
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
