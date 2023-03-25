@@ -11,3 +11,22 @@ if (formContainer && loginLink && signupLink) {
         formContainer.classList.remove('signup');
     });
 }
+
+const rippleButtons = document.querySelectorAll('.btn-ripple');
+if (rippleButtons.length) {
+    rippleButtons.forEach(rippleButton => {
+        rippleButton.addEventListener('click', event => {
+            let x = event.clientX - event.target.getBoundingClientRect().left;
+            let y = event.clientY - event.target.getBoundingClientRect().top;
+
+            let ripples = document.createElement('span');
+            ripples.style.left = (x - 20) + 'px';
+            ripples.style.top = (y - 20) + 'px';
+            event.target.appendChild(ripples);
+
+            setTimeout(() => {
+                ripples.remove();
+            }, 500);
+        });
+    });
+}
