@@ -1,0 +1,110 @@
+//  HTML structure
+//  <div class="checkbox">
+//      <input type="checkbox" name="" id="" />
+//      <label for="">
+//          <span></span>
+//          Text
+//      </label>
+//  </div>
+
+.checkbox {
+    [type='checkbox'] {
+        display: none;
+
+        & + label {
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: $dark;
+            transition: color 250ms cubic-bezier(.4, 0, .23, 1);
+
+            &:hover {
+                & > span {
+                    background: rgba($white, .15);
+                }
+            }
+
+            & > span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 1em;
+                width: 20px;
+                height: 20px;
+                background: transparent;
+                border: 2px solid $dark;
+                border-radius: 2px;
+                cursor: pointer;
+                transition: all 250ms cubic-bezier(.4, 0, .23, 1);
+            }
+
+            a {
+                margin-left: 3px;
+                display: inline-block;
+            }
+        }
+
+        &:focus {
+            & + label {
+                color: #fff;
+
+                & > span {
+                    background: rgba($white, .1);
+                }
+            }
+        }
+
+        &:checked {
+            & + label {
+                & > span {
+                    border: 10px solid $dark;
+                    animation: shrink-bounce 200ms cubic-bezier(.4, 0, .23, 1);
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: .6em;
+                        left: .3em;
+                        border-right: 3px solid transparent;
+                        border-bottom: 3px solid transparent;
+                        transform: rotate(45deg);
+                        transform-origin: 0 100%;
+                        color: $white;
+                        animation: checkbox-check 125ms 250ms cubic-bezier(.4, 0, .23, 1) forwards;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes shrink-bounce{
+    0%{
+        transform: scale(1);
+    }
+    33%{
+        transform: scale(.85);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+@keyframes checkbox-check{
+    0%{
+        width: 0;
+        height: 0;
+        border-color: $white;
+        transform: translate3d(0,0,0) rotate(45deg);
+    }
+    33%{
+        width: .2em;
+        height: 0;
+        transform: translate3d(0,0,0) rotate(45deg);
+    }
+    100%{
+        width: .2em;
+        height: .5em;
+        border-color: $white;
+        transform: translate3d(0,-.5em,0) rotate(45deg);
+    }
+}

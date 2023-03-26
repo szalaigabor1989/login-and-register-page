@@ -1,4 +1,72 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+.checkbox [type='checkbox'] {
+  display: none; }
+  .checkbox [type='checkbox'] + label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #162938;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.23, 1); }
+    .checkbox [type='checkbox'] + label:hover > span {
+      background: rgba(255, 255, 255, 0.15); }
+    .checkbox [type='checkbox'] + label > span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1em;
+      width: 20px;
+      height: 20px;
+      background: transparent;
+      border: 2px solid #162938;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 250ms cubic-bezier(0.4, 0, 0.23, 1); }
+    .checkbox [type='checkbox'] + label a {
+      margin-left: 3px;
+      display: inline-block; }
+  .checkbox [type='checkbox']:focus + label {
+    color: #fff; }
+    .checkbox [type='checkbox']:focus + label > span {
+      background: rgba(255, 255, 255, 0.1); }
+  .checkbox [type='checkbox']:checked + label > span {
+    border: 10px solid #162938;
+    animation: shrink-bounce 200ms cubic-bezier(0.4, 0, 0.23, 1); }
+    .checkbox [type='checkbox']:checked + label > span::before {
+      content: '';
+      position: absolute;
+      top: .6em;
+      left: .3em;
+      border-right: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      transform: rotate(45deg);
+      transform-origin: 0 100%;
+      color: #fff;
+      animation: checkbox-check 125ms 250ms cubic-bezier(0.4, 0, 0.23, 1) forwards; }
+
+@keyframes shrink-bounce {
+  0% {
+    transform: scale(1); }
+  33% {
+    transform: scale(0.85); }
+  100% {
+    transform: scale(1); } }
+
+@keyframes checkbox-check {
+  0% {
+    width: 0;
+    height: 0;
+    border-color: #fff;
+    transform: translate3d(0, 0, 0) rotate(45deg); }
+  33% {
+    width: .2em;
+    height: 0;
+    transform: translate3d(0, 0, 0) rotate(45deg); }
+  100% {
+    width: .2em;
+    height: .5em;
+    border-color: #fff;
+    transform: translate3d(0, -0.5em, 0) rotate(45deg); } }
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +75,7 @@
 
 body {
   min-height: 100vh;
+  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,7 +83,8 @@ body {
   background-size: cover; }
 
 .form-container {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 440px;
   background-color: transparent;
   border: 2px solid rgba(255, 255, 255, 0.5);
