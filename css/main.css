@@ -1,15 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+/* ================================================= */
+/* ||               TABLE OF CONTENT              || */
+/* ================================================= */
+/* || 01 :: Variables                             || */
+/* || 02 :: Default CSS                           || */
+/* || 03 :: Custom elements                       || */
+/* || 04 :: Login & Signup form                   || */
+/* ================================================= */
 
+/*  01. Variables                   */
 :root {
     --primary-color: #162938;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+/*  02. Default CSS                 */
 body {
     font-family: 'Poppins', sans-serif;
+    color: var(--primary-color);
     background: url('../images/bg.png') no-repeat;
     background-size: cover;
 }
 
+/*  03. Custom elements             */
 .checkbox [type='checkbox'] {
     display: none;
 }
@@ -105,6 +118,7 @@ body {
     }
 }
 
+/*  04. Login & Signup form         */
 .form-container {
     width: 100%;
     max-width: 400px;

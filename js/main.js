@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Change form
     const formContainer = document.querySelector('.form-container'),
         loginLink = document.querySelector('.login-link'),
         signupLink = document.querySelector('.signup-link');
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Ripple effect on buttons
     const rippleButtons = document.querySelectorAll('.btn-ripple');
     if (rippleButtons.length) {
         rippleButtons.forEach(rippleButton => {
